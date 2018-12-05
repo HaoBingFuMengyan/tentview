@@ -18,14 +18,14 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
   heroes: Hero[];
-  selectedHero: Hero;
+  // selectedHero: Hero;
   // hero: Hero = {
   //   id: 1,
   //   name: 'Windstorm'
   // };
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  // }
   
   getHeroes(): void{
     //this.heroes = this.heroService.getHeroes();这种赋值是同步，只能模拟本地数据或者数据量小的情况中，实际应用中推荐使用异步

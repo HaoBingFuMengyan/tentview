@@ -13,9 +13,15 @@ export class HeroService {
    * of(HEROES)会返回一个Observable<Hero[]>，它会发出一个值，这个值就是这些英雄的数组。
    * @return {Observable<Hero[]>} [description]
    */
-  getHeroes(): Observable<Hero[]>{
-  	this.messageService.add('HeroService: fetched heroes');
-  	return of(HEROES);
+  getHeroes(): Observable<Hero[]> {
+    // TODO: send the message _after_ fetching the heroes
+    this.messageService.add('HeroService: fetched heroes');
+    return of(HEROES);
+  }
+
+  getHeroe(id: number): Observable<Hero>{
+  	this.messageService.add(`HeroService: fetched heroes id=${id}`);
+  	return of(HEROES.find(hero => hero.id === id));
   }
   
 }
