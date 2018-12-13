@@ -31,6 +31,21 @@ export class HeroesComponent implements OnInit {
     //this.heroes = this.heroService.getHeroes();这种赋值是同步，只能模拟本地数据或者数据量小的情况中，实际应用中推荐使用异步
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
   }
+
+  //添加一个英雄
+  add(name: string): void{
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    console.log(name);
+    this.heroService.addHero({ name } as Hero).subscribe(obj => {this.heroes.push(obj)});
+  }
+  //删除一个英雄
+  delete(hero: Hero): void{
+    this.heroes = this.heroes.filter(h => h != hero);
+    this.heroService.deleteHero(hero).subscribe();
+  }
   
 }
 
